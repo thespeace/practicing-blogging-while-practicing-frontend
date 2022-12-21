@@ -1,1 +1,243 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css"/>
+    <title>Title</title>
+</head>
+<body>
+    <h1><span class="yellow">Vanilla Js</span><span class="blue"></span> World<span class="blue"></span></h1>
+    <h2>by SeongHwan Seo</h2>
+
+    <table class="container">
+      <thead><tr><th></th><th></th><th></th></tr></thead>
+      <tbody>
+
+
+
+
+
+
+
+<!--1-->
+        <tr>
+          <td>1</td>
+          <td onclick="toggle(this)">Data Type</td>
+          <td onclick="alert('준비 중..');">copy</td>
+        </tr>
+        <tr style="display: none;"><td colspan="3"><pre>
+const constantString    = "text";
+  let changeAbleInteger = 0;
+  var unusedVarString   = "usedBefore";
+const boolean_Y         = true;
+const boolean_N         = false;
+const empty             = null;
+  let insideIsNothing   = undefined;
+const variablesTypeRule = 'Always "const", sometimes "let", "var" never!';</pre></td></tr>
+<!--/1-->
+<!--2-->
+        <tr>
+          <td>2</td>
+          <td onclick="toggle(this)">Arrays(List)</td>
+          <td onclick="alert('준비 중..');">copy</td>
+        </tr>
+        <tr style="display: none;"><td colspan="3"><pre>
+const variable    = "변수 추가";
+const arrayOrList = [0, "text", true, false, null, undefined, variable];
+arrayOrList.push("addItem")
+
+const Object = {
+  property1 : "item1",
+  newProperty : ()=>{ console.log("item2") }
+};
+Object.property = "ChangeItem1";
+Object.newProperty = "addNewItem";</pre></td></tr>
+<!--/2-->
+<!--3-->
+        <tr>
+          <td>3</td>
+          <td onclick="toggle(this)">Function</td>
+          <td onclick="alert('준비 중..');">copy</td>
+        </tr>
+        <tr style="display: none;"><td colspan="3"><pre>
+const function1 = (argument1, argument2) => {
+    console.log("function1's body : " + argument1 + argument2);
+}
+function1(5, 10);
+
+const calculator = {
+    plus   : (a,b)=>a+b,
+    minus  : (a,b)=>a-b,
+    times  : (a,b)=>a*b,
+    divide : (a,b)=>a/b,
+    power  : (a,b)=>a**b
+}
+const plusResult = calculator.plus(1,2);
+...</pre></td></tr>
+<!--/3-->
+<!--4-->
+        <tr>
+          <td>4</td>
+          <td onclick="toggle(this)">If-Else-If</td>
+          <td onclick="alert('준비 중..');">copy</td>
+        </tr>
+        <tr style="display: none;"><td colspan="3"><pre>
+const age = parseInt(prompt("How old are you?")); // prompt : Question alert function, but not use!
+
+if(isNaN(age) || age < 0){
+    alert("Please write a real positive number..");
+}else if(age === 8){
+    alert("Go to Elementary School!");
+}else if(age < 18){
+    alert("You are too young..");
+}else if(age >= 18 && age <= 50){
+    alert("You can drink!");
+}else if(age > 50 && age <= 80){
+    alert("You should exercise..");
+}else if(age > 80){
+    alert("You can do whatever you want.");
+}</pre></td></tr>
+<!--/4-->
+<!--5-->
+        <tr>
+          <td>5</td>
+          <td onclick="toggle(this)">The Document Object</td>
+          <td onclick="alert('준비 중..');">copy</td>
+        </tr>
+        <tr style="display: none;"><td colspan="3"><pre>
+console.dir(document);
+
+자바스크립트의 관점으로는 HTML document가 Object로 이루어져 있다.
+그리고 자바스크립트는 HTML을 조작(조회, 생성, 수정, 삭제)할 수 있다.
+따라서 한마디로 HTML을 JS시점으로 보면 Javascript Object인데, 내부에 있는 property들의 값들을 변경하면서 원하는 목적을 이루는 것.</pre></td></tr>
+<!--/5-->
+<!--6-->
+        <tr>
+          <td>6</td>
+          <td onclick="toggle(this)">Searching For HTML Elements</td>
+          <td onclick="alert('준비 중..');">copy</td>
+        </tr>
+        <tr style="display: none;"><td colspan="3"><pre>
+const getIdInfo    = document.getElementById('Tag>ID');  //getElementById의 ID값은 당연하지만 Only One, 단 하나만 가져올 수 있다.
+const getClassInfo = document.getElementsByClassName("Tag>Class");  //array를 가져오기때문에 array[숫자]로 지정해서 접근해야 한다.
+const getTagNameInfo  = document.getElementsByTagName("TagName");  //이것 또한, array를 가져오기때문에 array[숫자]로 지정해서 접근해야 한다.
+const getNameInfo  = document.getElementsByName("Tag>Name");  //이것 또한, array를 가져오기때문에 array[숫자]로 지정해서 접근해야 한다.
+<strong>const getInfo  = document.querySelector("Tag>*");</strong>  // 하나의 element만 반환해준다. 2개 이상이 검색되었다면 맨 앞의 element만 반환해준다. CSS selector(ex, h1:first-child)를 사용할 수 있다.
+<strong>const getInfoAll  = document.querySelectorAll("Tag>*");</strong>  // array를 반환해준다. CSS selector(ex, h1:first-child)를 사용할 수 있다.
+</pre></td></tr>
+<!--/6-->
+<!--7-->
+        <tr>
+          <td>7</td>
+          <td onclick="toggle(this)"><span id="sevenEl">Events </span><button class="button" id="sevenClick">Get this area name!</button></td>
+          <td onclick="alert('준비 중..');">copy</td>
+        </tr>
+        <tr style="display: none;"><td colspan="3"><pre>
+span>#sevenEl  button#sevenClick
+
+const clickSevenEl = () => { alert(document.querySelector("#sevenEl").innerText); }
+document.querySelector("#sevenClick").addEventListener("click", clickSevenEl);
+
+Step 1. element를 찾아라.
+Step 2. event를 listen 해라.
+Step 3. 그 event에 반응해라.
++ 사용 가능한 event 보기 => console에 console.dir(document) 입력 후 많은 Object 앞에 on이 붙어있다면 거의 대부분 event Listener이다.</pre></td></tr>
+<!--/7-->
+<!--8-->
+<tr>
+    <td>8</td>
+    <td onclick="toggle(this)">event.preventDefault();</td>
+    <td onclick="alert('준비 중..');">copy</td>
+</tr>
+<tr style="display: none;"><td colspan="3"><pre>
+addEventListener 안에 있는 함수는 직접 실행하지 않는다.
+브라우저가 실행시켜주고 브라우저에서 해당 이벤트에 대한 정보 즉, object를 가지게 된다.
+addEventListener의 함수에서 object에 대한 자리만 할당해주면 해당 이벤트가 발생시킨 정보들에 대한 object들을 볼 수 있다!
+이때 해당 이벤트가 가진 기본 Default값을 발생시키지 않기 하게 위해선 preventDefault를 이용하여 막을 수 있다!
+브라우저의 기본 동작은 새로고침이다. a tag 동작도 막을 수 있다.</pre></td></tr>
+<!--/8-->
+<!--9-->
+<tr>
+    <td>9</td>
+    <td onclick="toggle(this)">localStorage :
+        <form id="login-form" class="hidden">
+            <input required maxlength="15" type="text" placeholder="what is your name?"/>
+            <input class="button" type="submit" value="Log In"/>
+        </form>
+        <span id="greeting" class="hidden"></span>
+    </td>
+    <td onclick="alert('준비 중..');">copy</td>
+</tr>
+<tr style="display: none;"><td colspan="3">
+localStorage는 브라우저가 가지고 있는 작은 DB같은 API. { KEY : VALUE } 형태!
+localStorage에 저장되어서 새로고침하여도 값을 유지한다, 값을 삭제하고 싶다면 클릭 => <input class="button" type="button" onclick="localStorage.removeItem('username'); alert('삭제되었습니다.'); location.reload();" value="remove localStorage"/><pre>
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
+
+const HiDDEN_CLASSNAME = "hidden"; //String만 포함된 변수, 중요하지 않은 내용은 대문자로 표기(관습)
+const USERNAME_KEY = "username";
+const onLoginSubmit = (event) => {
+    event.preventDefault();
+    loginForm.classList.add(HiDDEN_CLASSNAME);
+    const username = loginInput.value;
+    localStorage.setItem(USERNAME_KEY, username);
+    paintGreetings(username);
+    alert(`localStorage.setItem : ${localStorage.getItem(USERNAME_KEY)}!!`);
+}
+
+const paintGreetings=(username)=>{
+    greeting.innerText = `Hello! ${username}`; //백틱 기호를 사용하여 변수만 넣어주면 끝
+    greeting.classList.remove(HiDDEN_CLASSNAME);
+}
+
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+if(savedUsername === null){
+    loginForm.classList.remove(HiDDEN_CLASSNAME);
+    loginForm.addEventListener("submit", onLoginSubmit);
+}else{
+    paintGreetings(savedUsername);
+}</pre></td></tr>
+<!--/9-->
+<!--10-->
+<tr>
+    <td>10</td>
+    <td onclick="toggle(this)"><span id="clock"></span></td>
+    <td onclick="alert('준비 중..');">copy</td>
+</tr>
+<tr style="display: none;"><td colspan="3"><pre>
+</pre></td></tr>
+<!--/10-->
+<!--11-->
+<tr>
+    <td>11</td>
+    <td onclick="toggle(this)"></td>
+    <td onclick="alert('준비 중..');">copy</td>
+</tr>
+<tr style="display: none;"><td colspan="3"><pre>
+</pre></td></tr>
+<!--/11-->
+<!--12-->
+<tr>
+    <td>12</td>
+    <td onclick="toggle(this)"></td>
+    <td onclick="alert('준비 중..');">copy</td>
+</tr>
+<tr style="display: none;"><td colspan="3"><pre>
+</pre></td></tr>
+<!--/12-->
+
+
+
+
+
+
+
+
+
+      </tbody>
+    </table>
+  <script src="js/greetings.js"></script>
+</body>
+</html>
