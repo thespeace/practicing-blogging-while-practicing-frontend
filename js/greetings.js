@@ -49,5 +49,9 @@ if(savedUsername === null){
 }
 
 //10
-const clock = document.querySelector("span#clock");
-clock.innerText = "cloack";
+const clock = document.querySelector("div#clock");
+const sayHello = () => {
+    console.log("hello");
+}
+setInterval(sayHello, 5000); // sayHello 함수를 5초마다 실행.
+setTimeout(sayHello, 5000); // sayHello 함수를 5초뒤에 한번 실행.
