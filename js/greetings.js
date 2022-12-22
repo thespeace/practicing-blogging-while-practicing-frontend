@@ -2,17 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
     alert("Welcome, Vanilla Js World!");
 })
 
-function toggle(el){
-    if(el.parentNode.nextElementSibling !== null){
-        if(el.parentNode.nextElementSibling.style.display === 'none'){
-            el.parentNode.nextElementSibling.style.display = '';
-        }else{
-            el.parentNode.nextElementSibling.style.display = 'none';
-        }
-    }else{
-        alert("준비된 코드가 없습니다.");
-    }
-}
+const toggle=(el)=>{
+    el.parentNode.nextElementSibling !== null ?
+        el.parentNode.nextElementSibling.style.display === 'none' ? el.parentNode.nextElementSibling.style.display = ''
+                                                                  : el.parentNode.nextElementSibling.style.display = 'none'
+    : alert("준비된 코드가 없습니다."); }
+    /*if(el.parentNode.nextElementSibling !== null){
+        if(el.parentNode.nextElementSibling.style.display === 'none'){ el.parentNode.nextElementSibling.style.display = ''; }
+        else{ el.parentNode.nextElementSibling.style.display = 'none'; }
+    }else{ alert("준비된 코드가 없습니다."); }*/
 
 //7
 const clickSevenEl = () => { alert(document.querySelector("#sevenEl").innerText); }
@@ -50,8 +48,7 @@ if(savedUsername === null){
 
 //10
 const clock = document.querySelector("div#clock");
-const sayHello = () => {
-    console.log("hello");
-}
+const sayHello = () => console.log("hello");
 setInterval(sayHello, 5000); // sayHello 함수를 5초마다 실행.
+/*setTimeout(() => console.log('Loaded'), 5000);*/
 setTimeout(sayHello, 5000); // sayHello 함수를 5초뒤에 한번 실행.
