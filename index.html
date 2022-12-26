@@ -6,16 +6,11 @@
     <title>Title</title>
 </head>
 <body>
-    <h1><span class="yellow">Vanilla Js</span><span class="blue"></span> World<span class="blue"></span></h1>
-    <h2>by SeongHwan Seo</h2>
-
+    <h1><span class="yellow">Vanilla Js</span></h1>
     <table class="container">
-      <thead><tr><th colspan="3"><h3>JavaScript 세계에서 문제에 직면했을때마다 다른 개발자들도 100% 겪었다고 확신해도 좋다.<br>
-      많은 개발자들이 같은 문제를 겪고 또 겪었다면 Javascript 그 자체에 이미 그 작업을 수행하는 Function이 있을 것이다.</h3></th></tr></thead>
+      <thead><tr><th colspan="3"><!--<h3>JavaScript 세계에서 문제에 직면했을때마다 다른 개발자들도 100% 겪었다고 확신해도 좋다.<br>
+      많은 개발자들이 같은 문제를 겪고 또 겪었다면 Javascript 그 자체에 이미 그 작업을 수행하는 Function이 있을 것이다.</h3>--></th></tr></thead>
       <tbody>
-
-
-
 
 
 
@@ -119,12 +114,12 @@ console.dir(document);
           <td onclick="alert('준비 중..');">copy</td>
         </tr>
         <tr style="display: none;"><td colspan="3"><pre>
-const getIdInfo    = document.getElementById('Tag>ID');  //getElementById의 ID값은 당연하지만 Only One, 단 하나만 가져올 수 있다.
-const getClassInfo = document.getElementsByClassName("Tag>Class");  //array를 가져오기때문에 array[숫자]로 지정해서 접근해야 한다.
-const getTagNameInfo  = document.getElementsByTagName("TagName");  //이것 또한, array를 가져오기때문에 array[숫자]로 지정해서 접근해야 한다.
-const getNameInfo  = document.getElementsByName("Tag>Name");  //이것 또한, array를 가져오기때문에 array[숫자]로 지정해서 접근해야 한다.
-<strong>const getInfo  = document.querySelector("Tag>*");</strong>  // 하나의 element만 반환해준다. 2개 이상이 검색되었다면 맨 앞의 element만 반환해준다. CSS selector(ex, h1:first-child)를 사용할 수 있다.
-<strong>const getInfoAll  = document.querySelectorAll("Tag>*");</strong>  // array를 반환해준다. CSS selector(ex, h1:first-child)를 사용할 수 있다.
+const getIdInfo       = document.getElementById('Tag>ID');          //getElementById의 ID값은 당연하지만 Only One, 단 하나만 가져올 수 있다.
+const getClassInfo    = document.getElementsByClassName("Tag>Class");  //array를 가져오기때문에 array[숫자]로 지정해서 접근해야 한다.
+const getTagNameInfo  = document.getElementsByTagName("TagName");   //이것 또한, array를 가져오기때문에 array[숫자]로 지정해서 접근해야 한다.
+const getNameInfo     = document.getElementsByName("Tag>Name");     //이것 또한, array를 가져오기때문에 array[숫자]로 지정해서 접근해야 한다.
+<strong>const getInfo      = document.querySelector("Tag>*");</strong>      // 하나의 element만 반환해준다. 2개 이상이 검색되었다면 맨 앞의 element만 반환해준다. CSS selector(ex, h1:first-child)를 사용할 수 있다.
+<strong>const getInfoAll   = document.querySelectorAll("Tag>*");</strong>   // array를 반환해준다. CSS selector(ex, h1:first-child)를 사용할 수 있다.
 </pre></td></tr>
 <!--/6-->
 <!--7-->
@@ -170,7 +165,7 @@ addEventListener의 함수에서 object에 대한 자리만 할당해주면 해�
     <td onclick="alert('준비 중..');">copy</td>
 </tr>
 <tr style="display: none;"><td colspan="3">
-localStorage는 브라우저가 가지고 있는 작은 DB같은 API. { KEY : VALUE } 형태!
+localStorage는 브라우저가 가지고 있는 작은 DB같은 API. { KEY : VALUE } 형태!<br>
 localStorage에 저장되어서 새로고침하여도 값을 유지한다, 값을 삭제하고 싶다면 클릭 => <input class="button" type="button" onclick="localStorage.removeItem('username'); alert('삭제되었습니다.'); location.reload();" value="remove localStorage"/><pre>
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
@@ -224,15 +219,15 @@ setTimeout(sayHello, 5000); // sayHello 함수를 5초뒤에 한번 실행.</pre
 Date() = new Date().toString()
 new Date() : 생성자로 호출되면 새 Date 객체를 반환합니다.</pre>
 <input type="button" class="button" value="new Date()" onclick="alert(new Date())"><br>
-연도 : <input type="button" class="button" value="연도 : new Date().getFullYear()" onclick="alert(new Date().getFullYear())">return 4bit YYYY<br>
-월 : <input type="button" class="button" value="연도 : new Date().getMonth()" onclick="alert(new Date().getMonth())">return 정수, 1월(0)~12월(11)<br>
-일 : <input type="button" class="button" value="연도 : new Date().getDate()" onclick="alert(new Date().getDate())">return 정수, 1일(1)~31일(31)<br>
- : <input type="button" class="button" value="연도 : new Date().getDay()" onclick="alert(new Date().getDay())">return 정수, 일요일(0)~토요일(6)<br>
- : <input type="button" class="button" value="연도 : new Date().getHours()" onclick="alert(new Date().getHours())">return 정수, 시간(0~23)<br>
- : <input type="button" class="button" value="연도 : new Date().getMinutes()" onclick="alert(new Date().getMinutes())">return 정수, 분(0~59)<br>
- : <input type="button" class="button" value="연도 : new Date().getSeconds()" onclick="alert(new Date().getSeconds())">return 정수, 초(0~59)<br>
- : <input type="button" class="button" value="연도 : new Date().getMilliseconds()" onclick="alert(new Date().getMilliseconds())">return 정수, 밀리초(0~999)<br>
- : <input type="button" class="button" value="연도 : new Date().getTime()" onclick="alert(new Date().getTime())">return 정수, 1970년 1월 1일 0시 0분 0초부터 현재까지의 시간을 밀리초 단위로 환산한 값을 숫자로 리턴 한다.<br>
+연도 : <input type="button" class="button" value="연도 : new Date().getFullYear()" onclick="alert(new Date().getFullYear())"> return 4bit YYYY<br>
+  월 : <input type="button" class="button" value="연도 : new Date().getMonth()" onclick="alert(new Date().getMonth())"> return 정수, 1월(0)~12월(11)<br>
+  일 : <input type="button" class="button" value="연도 : new Date().getDate()" onclick="alert(new Date().getDate())"> return 정수, 1일(1)~31일(31)<br>
+요일 : <input type="button" class="button" value="연도 : new Date().getDay()" onclick="alert(new Date().getDay())"> return 정수, 일요일(0)~토요일(6)<br>
+ : <input type="button" class="button" value="연도 : new Date().getHours()" onclick="alert(new Date().getHours())"> return 정수, 시간(0~23)<br>
+ : <input type="button" class="button" value="연도 : new Date().getMinutes()" onclick="alert(new Date().getMinutes())"> return 정수, 분(0~59)<br>
+ : <input type="button" class="button" value="연도 : new Date().getSeconds()" onclick="alert(new Date().getSeconds())"> return 정수, 초(0~59)<br>
+ : <input type="button" class="button" value="연도 : new Date().getMilliseconds()" onclick="alert(new Date().getMilliseconds())"> return 정수, 밀리초(0~999)<br>
+ : <input type="button" class="button" value="연도 : new Date().getTime()" onclick="alert(new Date().getTime())"> return 정수, 1970년 1월 1일 0시 0분 0초부터 현재까지의 시간을 밀리초 단위로 환산한 값을 숫자로 리턴 한다.<br>
 <pre>*날짜를 문자열로 반환
  - Date.prototype.toDateString
  - Date.prototype.toTimeString
@@ -267,7 +262,7 @@ String(new Date().getSeconds()).padStart(2,"0");</pre></td></tr>
 <!--13-->
 <tr>
     <td>13</td>
-    <td onclick="toggle(this)">Math Module [<span id="randomQuote">zz</span>]</td>
+    <td onclick="toggle(this)">Math Module [Random quote : <span id="randomQuote">zz</span>]</td>
     <td onclick="alert('준비 중..');">copy</td>
 </tr>
 <tr style="display: none;"><td colspan="3"><pre>
@@ -286,19 +281,31 @@ ex) quotes 배열을 랜덤하게 가져와서 화면에 출력하기.
 <!--14-->
 <tr>
     <td>14</td>
-    <td onclick="toggle(this)">get img</td>
+    <td onclick="toggle(this)">createElement, random img <span id="randomImg"></span></td>
     <td onclick="alert('준비 중..');">copy</td>
 </tr>
 <tr style="display: none;"><td colspan="3"><pre>
+const images = ["test_1.png","test_2.png","test_3.png"];
+const chosenImage = images[Math.floor(Math.random() * images.length)];
+const bgImage = document.createElement("img"); //element 생성
+
+bgImage.src = `img/${chosenImage}`; //element 속성 추가
+bgImage.style = "width: 50px; height: 50px;"; // 크기 지정
+
+const imagesArea = document.querySelector("#randomImg");
+imagesArea.appendChild(bgImage);
 </pre></td></tr>
 <!--/14-->
 <!--15-->
 <tr>
     <td>15</td>
-    <td onclick="toggle(this)"></td>
+    <td onclick="toggle(this)">to-do list ↓</td>
     <td onclick="alert('준비 중..');">copy</td>
 </tr>
-<tr style="display: none;"><td colspan="3"><pre>
+<tr style="display: none;"><td colspan="3">
+<form id="todo-form"><input type="text" placeholder="Write a To Do and Press Enter" required/></form>
+<ul id="todo-list"></ul>
+<pre>
 </pre></td></tr>
 <!--/15-->
 <!--16-->
@@ -332,5 +339,7 @@ ex) quotes 배열을 랜덤하게 가져와서 화면에 출력하기.
     </table>
   <script src="js/greetings.js"></script>
   <script src="js/quotes.js"></script>
+  <script src="js/background.js"></script>
+  <script src="js/todo.js"></script>
 </body>
 </html>
