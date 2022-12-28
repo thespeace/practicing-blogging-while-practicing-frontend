@@ -2,30 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="css/common/header.css"/>
-    <link rel="stylesheet" href="css/common/basic.css"/>
+    <link rel="stylesheet" href="/02_css/common/layout.css"/>
+    <link rel="stylesheet" href="/02_css/style.css"/>
     <title>Title</title>
 </head>
 <body>
 <div id="wrap">
+
     <!--Header-->
     <header id="header"></header>
     <script>
-        fetch("html/common/header.html")
+        fetch("/01_html/common/header.html")
             .then(response => { return response.text() })
             .then(data => { document.querySelector("header").innerHTML = data; });
     </script>
-
-    <!--Navigation-->
-    <nav>
-        <p>nav</p>
-        <ul>
-            <li><a href="">link</a></li>
-            <li><a href="">link</a></li>
-            <li><a href="">link</a></li>
-        </ul>
-    </nav>
+    <!--include page : Navigation-->
+    <nav id="nav"></nav>
+    <script>
+        fetch("/01_html/common/nav.html")
+            .then(response => { return response.text() })
+            .then(data => { document.querySelector("nav").innerHTML = data; });
+    </script>
     <!--Content-->
     <section>
         <p>section</p>
@@ -375,17 +372,17 @@
 
     <footer id="footer"></footer>
     <script>
-        fetch("html/common/footer.html")
+        fetch("/01_html/common/footer.html")
             .then(response => { return response.text() })
             .then(data => { document.querySelector("footer").innerHTML = data; });
     </script>
 </div>
 
 <!--script-->
-<script src="js/greetings.js"></script>
-<script src="js/quotes.js"></script>
-<script src="js/background.js"></script>
-<script src="js/todo.js"></script>
+<script src="/03_js/greetings.js"></script>
+<script src="/03_js/quotes.js"></script>
+<script src="/03_js/background.js"></script>
+<script src="/03_js/todo.js"></script>
 
 </body>
 </html>

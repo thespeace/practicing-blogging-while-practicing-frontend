@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+*{
+    margin:0;
+    padding: 0;
+}
+
+body{
+    background-color: #202124;
+    text-align: center;
+}
+
+div #wrap {
+    width: 100%;
+    text-align: left;
+    min-height: 300px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/*header start ---*/
+#header{
+    position: relative;
+    border-bottom: 1px solid #858282;
+    background-color: #1c1c1c;
+}
+.inner_header{
+    position: relative;
+    max-width: 1600px;
+    height: 168px;
+    margin: 0 auto;
+    text-align: center;
+    box-sizing: border-box;
+}
+.inner_header .logo {
+    display: flex;
+    display: -webkit-flex;
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+}
+.inner_header .link_logo {
+    display: block;
+    width: 100%;
+    height: 80px;
+    background-size: auto 80px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.inner_header .btn_menu, .inner_header .btn_search {
+    position: absolute;
+    display: block;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    margin-top: -25px;
+    background: none;
+    line-height: 0;
+    color: #000;
+    cursor: pointer;
+    outline: none;
+}
+.inner_header .btn_search {
+    right: 60px;
+    color: #bbbbbb;
+    border: 0;
+}
+/*--- header end*/
+
+
+.container {
+    display: flex;
+    text-align: left;
+    height: calc(100vh - 242px);
+    overflow-y: auto;
+}
+
+nav, section, aside {
+    padding: 10px;
+}
+
+section {
+    width: 80%;
+    border-left: 1px solid #858282;
+    border-right: 1px solid #858282;
+    text-align: center;
+    color: white;
+}
+section>h1{
+    font-size: xxx-large;
+}
+
+article {
+    width: 100%;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
+    white-space: -o-pre-wrap;
+    word-break:break-all;
+    text-align: left;
+}
+
+nav {
+    width: 10%;
+    background-color: #1c1c1c;
+}
+
+aside {
+    width: 10%;
+    color: white;
+}
+
+footer {
+    height: 50px;
+    clear: both;
+    border-top: 1px solid #858282;
+}
+
+footer>span{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #bbbbbb;
+}
+
+/*scroll bar ---*/
+.container::-webkit-scrollbar {
+    width: 8px;  /* 스크롤바의 너비 */
+}
+
+.container::-webkit-scrollbar-thumb {
+    height: 30%; /* 스크롤바의 길이 */
+    background: #858282; /* 스크롤바의 색상 */
+}
+
+.container::-webkit-scrollbar-track {
+    background: #202124;  /*스크롤바 뒷 배경 색상*/
+}
+/*--- scroll bar*/
+
+
+a {
+    color: #bbbbbb;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}

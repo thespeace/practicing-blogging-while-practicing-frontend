@@ -2,52 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/common/header.css"/>
-    <link rel="stylesheet" href="css/common/basic.css"/>
+    <link rel="stylesheet" href="02_css/common/layout.css"/>
     <title>Title</title>
 </head>
 <body>
     <div id="wrap">
 
-        <!--Header-->
+        <!--include page : Header-->
         <header id="header"></header>
         <script>
-            fetch("html/common/header.html")
+            fetch("/01_html/common/header.html")
                 .then(response => { return response.text() })
                 .then(data => { document.querySelector("header").innerHTML = data; });
         </script>
+        <div class="container">
+            <!--include page : Navigation-->
+            <nav id="nav"></nav>
+            <script>
+                fetch("/01_html/common/nav.html")
+                    .then(response => { return response.text() })
+                    .then(data => { document.querySelector("nav").innerHTML = data; });
+            </script>
 
-        <!--Navigation-->
-        <nav>
-            <p>nav</p>
-            <ul>
-                <li><a href="">link</a></li>
-                <li><a href="">link</a></li>
-                <li><a href="">link</a></li>
-            </ul>
-        </nav>
+            <!--Content-->
+            <section>
+                <h1>title<h1>
+                <article><h1>content</h1></article>
+            </section>
 
-        <!--Content-->
-        <section>
-            <p>section</p>
-            <article>
-                <p>article</p>
-            </article>
-        </section>
+            <!--Side Bar-->
+            <aside>
+                <p><h1>side bar</h1></p>
+            </aside>
+        </div>
 
-        <!--Side Bar-->
-        <aside>
-            <p>aside</p>
-        </aside>
-
-        <!--Footer-->
+        <!--include page : Footer-->
         <footer id="footer"></footer>
         <script>
-            fetch("html/common/footer.html")
+            fetch("01_html/common/footer.html")
                 .then(response => { return response.text() })
                 .then(data => { document.querySelector("footer").innerHTML = data; });
         </script>
-
     </div>
 </body>
 </html>
