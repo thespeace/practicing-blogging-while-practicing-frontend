@@ -1,7 +1,7 @@
 const quotes = [
     {
-        quote : "quote1",
-        author : "author1"
+        quote : "JavaScript 세계에서 문제에 직면했을때마다 다른 개발자들도 100% 겪었다고 확신해도 좋다. \n" + "많은 개발자들이 같은 문제를 겪고 또 겪었다면 Javascript 그 자체에 이미 그 작업을 수행하는 Function이 있을 것이다.",
+        author : "유튜버 노마드코더"
     },
     {
         quote : "quote2",

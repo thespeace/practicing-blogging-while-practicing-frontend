@@ -1,13 +1,16 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
 
 *{
-    margin:0;
+    margin: 0;
     padding: 0;
+    font-family: 'Gowun Batang', serif;
 }
 
 body{
     background-color: #202124;
     text-align: center;
+    font-family: 'Gowun Batang', serif;
 }
 
 div #wrap {
@@ -27,7 +30,7 @@ div #wrap {
 .inner_header{
     position: relative;
     max-width: 1600px;
-    height: 168px;
+    height: 50px;
     margin: 0 auto;
     text-align: center;
     box-sizing: border-box;
@@ -73,8 +76,7 @@ div #wrap {
 .container {
     display: flex;
     text-align: left;
-    height: calc(100vh - 242px);
-    overflow-y: auto;
+    height: calc(100vh - 82px);
 }
 
 nav, section, aside {
@@ -87,56 +89,83 @@ section {
     border-right: 1px solid #858282;
     text-align: center;
     color: white;
-}
-section>h1{
-    font-size: xxx-large;
+    padding: 20px;
+    overflow-y: auto;
 }
 
-article {
-    width: 100%;
-    word-wrap: break-word;
-    white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: pre-wrap;
-    white-space: -o-pre-wrap;
-    word-break:break-all;
+section.items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+section.items>article{
+    /*height: 33vh; ??궁금한거 : 반응형으로 박스 사이즈 조절
+    width: 33vh;*/
+    border: 1px dashed #858282;
+    padding: 20px;
+    margin-bottom: 40px;
     text-align: left;
+    background-color: #1c1c1c;
 }
 
+section.items>article::-webkit-scrollbar {
+    display: none;
+}
+
+section.items>article>h1{
+    font-size: x-large;
+    padding-bottom: 20px;
+}
+
+section.items>article>pre{
+    white-space: pre-wrap;
+    word-break: break-all;
+}
 nav {
-    width: 10%;
+    width: 13%;
     background-color: #1c1c1c;
 }
 
 aside {
-    width: 10%;
+    width: 7%;
     color: white;
+    word-break:break-all;
+    word-wrap:break-word;
+}
+aside>p {
+    color: white;
+    border-bottom: 1px solid white;
 }
 
 footer {
-    height: 50px;
+    height: 30px;
     clear: both;
     border-top: 1px solid #858282;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
 }
 
 footer>span{
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    align-items: center;
+    margin-left: 20px;
     color: #bbbbbb;
 }
 
 /*scroll bar ---*/
-.container::-webkit-scrollbar {
+section::-webkit-scrollbar {
     width: 8px;  /* 스크롤바의 너비 */
 }
 
-.container::-webkit-scrollbar-thumb {
+section::-webkit-scrollbar-thumb {
     height: 30%; /* 스크롤바의 길이 */
     background: #858282; /* 스크롤바의 색상 */
 }
 
-.container::-webkit-scrollbar-track {
+section::-webkit-scrollbar-track {
     background: #202124;  /*스크롤바 뒷 배경 색상*/
 }
 /*--- scroll bar*/
@@ -150,4 +179,11 @@ a {
 
 li {
     list-style: none;
+}
+
+.test{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0.5rem;
 }
