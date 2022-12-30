@@ -6,9 +6,10 @@
     padding: 0;
     font-family: 'Gowun Batang', serif;
 }
-
+/*202124*/
 body{
-    background-color: #202124;
+    background-color: #1c1c1c;
+    /*background-color: #202124;*/
     text-align: center;
     font-family: 'Gowun Batang', serif;
 }
@@ -21,62 +22,37 @@ div #wrap {
     padding: 0;
 }
 
-/*header start ---*/
-#header{
-    position: relative;
+header{
+    height: 40px;
     border-bottom: 1px solid #858282;
-    background-color: #1c1c1c;
-}
-.inner_header{
-    position: relative;
-    max-width: 1600px;
-    height: 50px;
-    margin: 0 auto;
-    text-align: center;
-    box-sizing: border-box;
-}
-.inner_header .logo {
     display: flex;
-    display: -webkit-flex;
-    width: 70%;
-    height: 100%;
-    margin: 0 auto;
-    flex-direction: column;
-    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    justify-content : space-between;
 }
-.inner_header .link_logo {
-    display: block;
-    width: 100%;
-    height: 80px;
-    background-size: auto 80px;
-    background-repeat: no-repeat;
-    background-position: center;
+
+header>div>span#logo{
+    margin-left: 20px;
 }
-.inner_header .btn_menu, .inner_header .btn_search {
-    position: absolute;
-    display: block;
-    top: 50%;
-    width: 50px;
-    height: 50px;
-    margin-top: -25px;
-    background: none;
-    line-height: 0;
-    color: #000;
-    cursor: pointer;
-    outline: none;
+
+header>div>span#header_dep1{
+    margin-left: 5px;
 }
-.inner_header .btn_search {
-    right: 60px;
-    color: #bbbbbb;
-    border: 0;
+header>div>span#header_dep3{
+    color: #4DC3FA;
 }
-/*--- header end*/
+header>div#header_right>span{
+    color: #e8e8de;
+    margin-right: 15px;
+}
 
 
 .container {
     display: flex;
     text-align: left;
-    height: calc(100vh - 82px);
+    height: calc(100vh - 64px);
 }
 
 nav, section, aside {
@@ -91,6 +67,7 @@ section {
     color: white;
     padding: 20px;
     overflow-y: auto;
+    background-color: rgb(37, 37, 37);
 }
 
 section.items{
@@ -139,20 +116,45 @@ aside>p {
 }
 
 footer {
-    height: 30px;
+    height: 20px;
     clear: both;
     border-top: 1px solid #858282;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
     align-items: center;
+    justify-content : space-between;
+    overflow: hidden;
 }
 
-footer>span{
+footer>div#footer_left:first-child{
     position: relative;
     align-items: center;
-    margin-left: 20px;
+    margin-left: 15px;
     color: #bbbbbb;
+    font-size : small;
+}
+footer>#footer_left>a:nth-child(n+2){
+    position: relative;
+    align-items: center;
+    margin-left: 5px;
+    color: #bbbbbb;
+    font-size : small;
+}
+
+footer>div#footer_center{
+    position: relative;
+    align-items: center;
+    color: #bbbbbb;
+    font-size : small;
+}
+
+footer>div#footer_right{
+    position: relative;
+    align-items: center;
+    margin-right: 15px;
+    color: #bbbbbb;
+    font-size : small;
 }
 
 /*scroll bar ---*/
