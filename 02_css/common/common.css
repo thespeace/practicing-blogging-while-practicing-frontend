@@ -6,3 +6,10 @@
     width: 1px;
     height: 1px
 }
+
+.articleForm{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0.5rem;
+}
