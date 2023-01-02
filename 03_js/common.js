@@ -1,8 +1,13 @@
-alert(window.location.href);
+const kkkk = document.querySelector("#kkkk");
+const zzzz = () =>{
+    alert(window.location.pathname.split('/')[2]);
+}
+kkkk.addEventListener("click", zzzz);
 
-alert(window.location.pathname);
-alert(window.location.protocol);
-alert(window.location.assign);
+const pathName = window.location.pathname.split('/');
+
+pathName.forEach((element,index,array) => alert(array[2]));
+
 
 /*
 function copy(){

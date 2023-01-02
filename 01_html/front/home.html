@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/02_css/common/layout.css"/>
     <link rel="stylesheet" href="/02_css/common/common.css"/>
-    <link rel="stylesheet" href="/03_js/common.js"/>
     <title>dev3 menual</title>
 </head>
 <body>
@@ -31,7 +30,7 @@
             <h1>content</h1>
             <!--<article><h1>content</h1><button onclick="alert(window.location.href);">z</button></article>
             <article><h1>content</h1><button onclick="alert(window.location.hostname);">z</button></article>-->
-            <article><h1>content</h1><button onclick="alert(window.location.pathname);">z</button></article>
+            <article><h1>content</h1><button id="kkkk">z</button></article>
             <!--<article><h1>content</h1><button onclick="alert(window.location.protocol);">z</button></article>
             <article><h1>content</h1><button onclick="alert(window.location.assign);">z</button></article>-->
         </section>
@@ -49,6 +48,9 @@
             .then(response => { return response.text() })
             .then(data => { document.querySelector("footer").innerHTML = data; });
     </script>
+
+    <!--script-->
+    <script src="/03_js/common.js"></script>
 </div>
 </body>
 </html>
