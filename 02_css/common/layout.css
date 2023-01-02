@@ -127,14 +127,14 @@ footer {
     overflow: hidden;
 }
 
-footer>div#footer_left:first-child{
+footer>div.footer_left:first-child{
     position: relative;
     align-items: center;
     margin-left: 15px;
     color: #bbbbbb;
     font-size : small;
 }
-footer>#footer_left>a:nth-child(n+2){
+footer>.footer_left>a:nth-child(n+2){
     position: relative;
     align-items: center;
     margin-left: 5px;
@@ -142,14 +142,14 @@ footer>#footer_left>a:nth-child(n+2){
     font-size : small;
 }
 
-footer>div#footer_center{
+footer>div.footer_center{
     position: relative;
     align-items: center;
     color: #bbbbbb;
     font-size : small;
 }
 
-footer>div#footer_right{
+footer>div.footer_right{
     position: relative;
     align-items: center;
     margin-right: 15px;

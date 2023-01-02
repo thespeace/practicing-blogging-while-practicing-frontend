@@ -1,3 +1,9 @@
+alert(window.location.href);
+
+alert(window.location.pathname);
+alert(window.location.protocol);
+alert(window.location.assign);
+
 /*
 function copy(){
     var text = document.querySelector("#copyHere");
