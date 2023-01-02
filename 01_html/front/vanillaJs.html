@@ -311,25 +311,12 @@ imagesArea.appendChild(bgImage);</pre>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     </section>
 
     <!--Aside Bar-->
     <aside id="aside"></aside>
     <script>
-        fetch("/01_html/common/aside.html")
+        fetch("/01_html/common/mapAside.html")
             .then(response => { return response.text() })
             .then(data => { document.querySelector("aside").innerHTML = data; });
     </script>

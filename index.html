@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="02_css/common/layout.css"/>
+    <link rel="stylesheet" href="/02_css/common/layout.css"/>
+    <link rel="stylesheet" href="/02_css/common/common.css"/>
     <title>dev3 menual</title>
 </head>
 <body>
@@ -39,7 +40,7 @@
         <!--include page : Footer-->
         <footer id="footer"></footer>
         <script>
-            fetch("01_html/common/footer.html")
+            fetch("/01_html/common/footer.html")
                 .then(response => { return response.text() })
                 .then(data => { document.querySelector("footer").innerHTML = data; });
         </script>
