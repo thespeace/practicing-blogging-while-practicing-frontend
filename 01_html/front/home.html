@@ -11,11 +11,12 @@
 
     <!--include page : Header-->
     <header id="header"></header>
-    <script>
+    <!--<script>
         fetch("/01_html/common/header.html")
             .then(response => { return response.text() })
             .then(data => { document.querySelector("header").innerHTML = data; });
-    </script>
+    </script>-->
+
     <div class="container">
         <!--include page : Navigation-->
         <nav id="nav"></nav>
@@ -28,11 +29,6 @@
         <!--Content-->
         <section>
             <h1>content</h1>
-            <!--<article><h1>content</h1><button onclick="alert(window.location.href);">z</button></article>
-            <article><h1>content</h1><button onclick="alert(window.location.hostname);">z</button></article>-->
-            <article><h1>content</h1><button id="kkkk">z</button></article>
-            <!--<article><h1>content</h1><button onclick="alert(window.location.protocol);">z</button></article>
-            <article><h1>content</h1><button onclick="alert(window.location.assign);">z</button></article>-->
         </section>
 
         <!--Side Bar-->
