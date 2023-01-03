@@ -4,9 +4,8 @@ const zzzz = () =>{
 }
 kkkk.addEventListener("click", zzzz);
 
-const pathName = window.location.pathname.split('/');
-
-pathName.forEach((element,index,array) => alert(array[2]));
+const pathNameArr = window.location.pathname.split('/');
+alert(pathNameArr[1]);
 
 
 /*
