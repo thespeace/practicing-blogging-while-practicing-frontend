@@ -5,7 +5,7 @@ const  toDoList = document.querySelector("#todo-list");
 const toDos = [];
 
 const saveToDos=()=>{
-    localStorage.setItem("todos", toDos);
+    localStorage.setItem("todos", JSON.stringify(toDos)); /*json내장함수 사용하여 String 으로 만들기*/
 }
 
 const paintToDo=(newTodo)=>{
