@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/02_css/common/layout.css"/>
     <link rel="stylesheet" href="/02_css/common/common.css"/>
+    <link rel="stylesheet" href="/02_css/index.css"/>
     <title>dev3 menual</title>
 </head>
 <body>
@@ -28,7 +29,10 @@
             <!--Content-->
             <section>
                 <h1>안녕하세요</h1>
-                <article><h1>이 정적 웹 페이지는 html, css, vanilla js로만 이루어졌습니다.</h1></article>
+                <article>
+                    <h1>이 정적 웹 페이지는 html, css, vanilla js로만 이루어졌습니다.</h1>
+                    <canvas></canvas>
+                </article>
             </section>
 
             <!--Side Bar-->
@@ -45,5 +49,7 @@
                 .then(data => { document.querySelector("footer").innerHTML = data; });
         </script>
     </div>
+
+    <script src="/03_js/canvas.js"></script>
 </body>
 </html>

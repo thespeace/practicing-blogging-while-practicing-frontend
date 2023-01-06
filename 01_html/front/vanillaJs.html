@@ -12,20 +12,20 @@
 
     <!--Header-->
     <header id="header"></header>
-    <!--<script>
+    <script>
         fetch("/01_html/common/header.html")
             .then(response => { return response.text() })
             .then(data => { document.querySelector("header").innerHTML = data; });
-    </script>-->
+    </script>
 
     <div class="container">
     <!--include page : Navigation-->
     <nav id="nav"></nav>
-    <!--<script>
+    <script>
         fetch("/01_html/common/nav.html")
             .then(response => { return response.text() })
             .then(data => { document.querySelector("nav").innerHTML = data; });
-    </script>-->
+    </script>
     <!--Content-->
     <section class="items">
 
@@ -301,11 +301,28 @@ imagesArea.appendChild(bgImage);</pre>
                 <form id="todo-form"><input type="text" placeholder="Write a To Do and Press Enter" required/></form>
             </div>
                 <ul id="todo-list"></ul>
-
-
-
-
             <pre></pre>
+        </article>
+
+        <article>
+            <h1 id="weather information">📌weather information</h1>
+            <div id="weather">
+                <span></span>
+                <span></span>
+            </div>
+            <pre>위도와 경로로 api를 호출하여
+해당 위치정보와 기온과 날씨를 얻기</pre>
+        </article>
+
+        <article>
+            <h1 id="canvas">📌canvas html element</h1>
+            <div id="weather">
+                <span></span>
+                <span></span>
+            </div>
+            <pre>canvas API
+javascript로 그래픽을 그릴 수 있게 해주는 api로써,
+WebGL API로 2D 그래픽이나 3D그래픽을 그릴 수 있다.</pre>
         </article>
 
 
@@ -315,20 +332,20 @@ imagesArea.appendChild(bgImage);</pre>
 
     <!--Aside Bar-->
     <aside id="aside"></aside>
-    <!--<script>
+    <script>
         fetch("/01_html/common/mapAside.html")
             .then(response => { return response.text() })
             .then(data => { document.querySelector("aside").innerHTML = data; });
-    </script>-->
+    </script>
     </div>
 
 
     <footer id="footer"></footer>
-    <!--<script>
+    <script>
         fetch("/01_html/common/footer.html")
             .then(response => { return response.text() })
             .then(data => { document.querySelector("footer").innerHTML = data; });
-    </script>-->
+    </script>
 </div>
 
 <!--script-->
