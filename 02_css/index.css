@@ -1,5 +1,10 @@
 canvas{
-    width: 800px;
-    height: 800px;
+    width: 700px;
+    height: 700px;
     border: 5px solid #858282;
+}
+.color-option{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
 }
