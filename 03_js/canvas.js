@@ -4,6 +4,7 @@ const ctx = canvas.getContext("2d");//context는 그림을 그릴때 사용하�
 canvas.width = 700;
 canvas.height = 700;
 const lineWidth = document.querySelector("#line-width");
+const colorOptions = Array.from(document.querySelector(".color-option"));
 const color = document.querySelector("#color");
 
 /*fillRect()
@@ -73,11 +74,17 @@ const onColorChange=(event)=>{
 }
 
 
+const onColorClick=(event)=>{
+    console.dir(event.target.dataset.color);
+}
+
 canvas.addEventListener("mousemove",onMove);
 canvas.addEventListener("mousedown",startPainting);
 canvas.addEventListener("mouseup",cancelPainting);
 canvas.addEventListener("mouseleave", cancelPainting);
 lineWidth.addEventListener("change", onLineWidthChange);
 color.addEventListener("change", onColorChange);
+
+colorOptions.forEach(color => color.addEventListener("click", onColorClick));
 
 
