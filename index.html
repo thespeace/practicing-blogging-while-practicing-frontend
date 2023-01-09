@@ -31,10 +31,10 @@
                 <h1>안녕하세요</h1>
                 <article>
                     <h1>이 정적 웹 페이지는 html, css, vanilla js로만 이루어졌습니다.</h1>
-                    <input type="range" id="line-width" min="1" max="20" value="2" step="0.3">
                     <canvas></canvas>
                     <div style="display: flex; justify-content: center">
-                        <input type="color" id="color" style="margin-right: 100px">
+                        <input type="range" id="line-width" min="1" max="20" value="2" step="0.3" style="margin-right: 20px">
+                        <input type="color" id="color" style="margin-right: 20px">
                         <div class="color-option" style="background-color: #1abc9c" data-color="#1abc9c"></div>
                         <div class="color-option" style="background-color: #3498db" data-color="#3498db"></div>
                         <div class="color-option" style="background-color: #34495e" data-color="#34495e"></div>
@@ -46,10 +46,13 @@
                         <div class="color-option" style="background-color: #d35400" data-color="#d35400"></div>
                         <div class="color-option" style="background-color: #bdc3c7" data-color="#bdc3c7"></div>
                         <div class="color-option" style="background-color: #2ecc71" data-color="#2ecc71"></div>
-                        <div class="color-option" style="background-color: #e67e22; margin-right: 200px" data-color="#e67e22"></div>
+                        <div class="color-option" style="background-color: #e67e22; margin-right: 20px" data-color="#e67e22"></div>
                         <button id="mode-btn">Fill</button>
                         <button id="eraser-btn">Eraser</button>
                         <button id="destroy-btn">Destroy</button>
+                    </div>
+                    <div>
+                        <input type="file" accept="image/*" id="file" style="margin-left: 805px">
                     </div>
                 </article>
             </section>

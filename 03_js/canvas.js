@@ -48,7 +48,7 @@ const colorOptions = Array.from(
 const modeBtn = document.querySelector("#mode-btn");
 const destroyBtn = document.querySelector("#destroy-btn");
 const eraserBtn = document.querySelector("#eraser-btn");
-
+const fileInput = document.querySelector("#file");
 
 const colors = [
     "#ff3838",
@@ -123,7 +123,21 @@ const onEraserClick=()=>{
     color.value = "rgb(37, 37, 37)";
 }
 
+const onFileChange=(event)=>{
+    /*console.dir(event.target);*/
+    const file = event.target.files[0]; //js를 이용해서 그 파일을 가져오고,
+    const url = URL.createObjectURL(file); //그 파일을 가리키는 url를 얻는 것. 해당 url은 현실의 인터넷에는 존재하지 않고, 해당 브라우저 메모리에 있는 파일을 드러내는 방식.
+    /*console.log(url);*/
+    const image = new Image();
+    image.src = url;
+    image.onload =()=>{
+        ctx.drawImage(image, 0,0,CANVAS_WIDTH,CANVAS_HEIGHT);
+        fileInput.value = null;
+    }
+}
+
 canvas.addEventListener("mousemove",onMove);
+/*canvas.onmousemove = ()=>{}  위의 리스너와 같다. 하지만 addEventListener는 같은 event안에 많은 event listener들을 추가 할수 있기 때문에 더 효율적이다*/
 canvas.addEventListener("mousedown",startPainting);
 canvas.addEventListener("mouseup",cancelPainting);
 canvas.addEventListener("mouseleave", cancelPainting);
@@ -136,4 +150,4 @@ colorOptions.forEach(color => color.addEventListener("click", onColorClick));
 modeBtn.addEventListener("click", onModeClick);
 destroyBtn.addEventListener("click",onDestroyClick);
 eraserBtn.addEventListener("click", onEraserClick);
-
+fileInput.addEventListener("change", onFileChange);
