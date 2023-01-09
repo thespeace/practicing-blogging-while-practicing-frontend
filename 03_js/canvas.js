@@ -40,6 +40,7 @@ const CANVAS_HEIGHT = 700;
 
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
+ctx.lineCap = "round";
 const lineWidth = document.querySelector("#line-width");
 const color = document.querySelector("#color");
 const colorOptions = Array.from(
@@ -49,6 +50,8 @@ const modeBtn = document.querySelector("#mode-btn");
 const destroyBtn = document.querySelector("#destroy-btn");
 const eraserBtn = document.querySelector("#eraser-btn");
 const fileInput = document.querySelector("#file");
+const textInput = document.querySelector("#text");
+const saveBtn = document.querySelector("#save");
 
 const colors = [
     "#ff3838",
@@ -125,15 +128,34 @@ const onEraserClick=()=>{
 
 const onFileChange=(event)=>{
     /*console.dir(event.target);*/
-    const file = event.target.files[0]; //js를 이용해서 그 파일을 가져오고,
-    const url = URL.createObjectURL(file); //그 파일을 가리키는 url를 얻는 것. 해당 url은 현실의 인터넷에는 존재하지 않고, 해당 브라우저 메모리에 있는 파일을 드러내는 방식.
+    const file = event.target.files[0]; //js를 이용해서 그 파일을 가져오고~  /////// 파일이 배열인 이유? input에 multiple 속성을 추가할 수 있기 때문.
+    const url = URL.createObjectURL(file); // 그 파일을 가리키는 브라우저 메모리의 url를 얻는 것. 해당 url은 현실의 인터넷에는 존재하지 않고, 해당 브라우저 메모리에 있는 파일을 드러내는 방식.
     /*console.log(url);*/
-    const image = new Image();
+    const image = new Image();// === document.createElement("img");
     image.src = url;
     image.onload =()=>{
         ctx.drawImage(image, 0,0,CANVAS_WIDTH,CANVAS_HEIGHT);
         fileInput.value = null;
     }
+}
+
+const onDoubleClick=(event)=>{
+    ctx.save();//현재 상태, 색상, 스타일등 모든것을 저장
+    const text = textInput.value;
+    if(text !== ""){
+        ctx.lineWidth = 1;
+        ctx.font = "48px serif"
+        ctx.fillText(text, event.offsetX, event.offsetY); //fill || stroke
+        ctx.restore(); //save와 restore 사이에는 어떤한것도 저장이 되지 않는다.
+    }
+}
+
+const onSaveClick=()=>{
+    const url = canvas.toDataURL();//이미지를 base64로 인코딩해준다.(즉, 캔버스에 있는 그림데이터를 url로 변환해주는 메소드)
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "myDrawing.png"
+    a.click();
 }
 
 canvas.addEventListener("mousemove",onMove);
@@ -142,6 +164,7 @@ canvas.addEventListener("mousedown",startPainting);
 canvas.addEventListener("mouseup",cancelPainting);
 canvas.addEventListener("mouseleave", cancelPainting);
 canvas.addEventListener("click", onCanvasClick);
+canvas.addEventListener("dblclick", onDoubleClick);
 
 lineWidth.addEventListener("change", onLineWidthChange);
 color.addEventListener("change", onColorChange);
@@ -151,3 +174,4 @@ modeBtn.addEventListener("click", onModeClick);
 destroyBtn.addEventListener("click",onDestroyClick);
 eraserBtn.addEventListener("click", onEraserClick);
 fileInput.addEventListener("change", onFileChange);
+saveBtn.addEventListener("click", onSaveClick);
