@@ -27,8 +27,14 @@
 
         <!--Content-->
         <section>
-            <h1>content</h1>
-            <article><h1>content</h1></article>
+            <article>
+                <h1 style="font-size: 2em; padding: 50px 0;">vanilla js VS "react js"</h1>
+                <h3>React Js의 본질에 대해 살펴보자.</h3>
+                <p id="myRoot"></p>
+            </article>
+
+
+
         </section>
 
         <!--Side Bar-->
@@ -45,5 +51,10 @@
             .then(data => { document.querySelector("footer").innerHTML = data; });
     </script>
 </div>
+
+<!--script-->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="/03_js/react.js"></script>
 </body>
 </html>
