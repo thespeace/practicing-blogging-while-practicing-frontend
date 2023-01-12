@@ -135,7 +135,9 @@ const App =()=> {
     let [counter, setCounter] = React.useState(0); /*useState()는 우리한테 배열 하나를 주는데, 첫번재 요소는 우리가 담으려는 data값이고, 두번째 요소는 이 data값을 바꿀때 사용할 modifier이다.
                                                    더불어 useState()함수는 counter같은 데이터를 숫자형 데이터로 건네줄거고 그 데이터 값을 바꿀 함수도 함께 준다.*/
     const onClick =()=>{
-        setCounter(counter + 1);
+        setCounter((current) => current + 1);
+        /*setCounter(counter + 1); 이전 값을 이용해서 현재 값을 계산. 해당 방식보다 위의 함수가 더 안전하다 이유는 리액트가 current가 확실히 현재 값이라는 걸 보장하면서 우리가 원하는 값을 정확히 계산해준다. return하면 그게 새로운 state가 된다.
+        setCounter(1) 직접 값을 할당 */
     };
     console.log("rendered");
     console.log(counter);
@@ -154,5 +156,27 @@ ReactDOM.render(<App/>,myRoot);
 하지만 지금 우리는 React 기능을 알고 그 도움을 받고 있어서, 전보다 훨씬 쉬워졌다.
 
 modifier 함수를 가지고 state를 변경할 때, 컴포넌트가 재 생성된다.
-새로운 값을 가지고 리렌더링! return 값도 재생성되지만 변수를 업데이트하고 재 실행!*/
+새로운 값을 가지고 리렌더링! return 값도 재생성되지만 변수를 업데이트하고 재 실행!
+*/
+
+
+
+/*
+실습 gogogo!!!
+*/
+
+const converter = document.querySelector("#converter");
+
+function ConvertApp() {
+    return (
+        <div>
+            <h1>Super Converter</h1>
+            <label htmlFor="minutes">Minutes</label>
+            <input id="minutes" type="Number" placeholder="Minutes"/>
+            <label htmlFor="hours">Hours</label>
+            <input id="hours" type="Number" placeholder="Hours"/>
+        </div>
+    );
+}
+ReactDOM.render(<ConvertApp />, converter);
 
