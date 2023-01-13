@@ -163,16 +163,37 @@ modifier 함수를 가지고 state를 변경할 때, 컴포넌트가 재 생성�
 
 /*
 실습 gogogo!!!
+
+그전에 잠깐! react, reactdom을 import하는 script tag에서
+production - > development 로 변경하는데
+production은 배포 모드, development는 개발 모드를 의미합니다.
+버그로 이어질 수 있는 요소들을 미리 경고하는 검증 코드가 포함되어 있습니다.
+
+배포용이랑 개발용 차이가 개발용으로하면 우리들이 react에서 틀린 html문법을 쓰면 경고로 알려주고 배포용은 알려주지않는데, 아마 경고를 해주는 코드가 줄어들면서 파일이 더 가벼워질거에요. 따라서 배포하기 더 좋아집니다.
+
+그럼 이제 단위 변환(unit conversion) 앱을 만들어보자!
 */
 
 const converter = document.querySelector("#converter");
 
 function ConvertApp() {
+    const [minutes, setMinutes] = React.useState(0);
+    const onChange = (event) => { /* React는 이벤트를 최적화 시키기때문에 Synthetic Event(합성 이벤트)를 발생시킨다. 원레 vanilla js의 이벤트를 얻고싶다면 nativeEvent를 살펴보면 확인 할 수 있다. */
+        /*console.log("somebody wrote : " + event.target.value);*/
+        setMinutes(event.target.value);
+    };
     return (
         <div>
-            <h1>Super Converter</h1>
+            <h1 className="superConverter">Super Converter</h1> {/*미리 선점된 js의 언어인 class 및 for은 jsx언어로 바꾸어줘야 한다. htmlFor , className! */}
             <label htmlFor="minutes">Minutes</label>
-            <input id="minutes" type="Number" placeholder="Minutes"/>
+            <input
+                value={minutes}
+                id="minutes"
+                type="Number"
+                placeholder="Minutes"
+                onChange={onChange}
+            />
+            <h4>You want to convert : {minutes}</h4>
             <label htmlFor="hours">Hours</label>
             <input id="hours" type="Number" placeholder="Hours"/>
         </div>
@@ -180,3 +201,7 @@ function ConvertApp() {
 }
 ReactDOM.render(<ConvertApp />, converter);
 
+/*React js 에서 input은 uncontrolled라고 알려져 있는 만큼 input의 value를 통제할 수가 없다.
+그래서 state를 사용해줘야 한다.
+
+* */
