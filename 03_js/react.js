@@ -143,6 +143,7 @@ const App =()=> {
     console.log(counter);
     return (
     <div>
+        <hr/>
         <h3>Total clicks : {counter}</h3>
         <button onClick={onClick}>Click me</button>
     </div>
@@ -174,34 +175,86 @@ production은 배포 모드, development는 개발 모드를 의미합니다.
 그럼 이제 단위 변환(unit conversion) 앱을 만들어보자!
 */
 
-const converter = document.querySelector("#converter");
-
-function ConvertApp() {
-    const [minutes, setMinutes] = React.useState(0);
+function MinutesToHours() {
+    const [amount, setAmount] = React.useState("");
+    const [inverted, setInverted] = React.useState(false); /*flipped는 단순 변수(true or false)*/
     const onChange = (event) => { /* React는 이벤트를 최적화 시키기때문에 Synthetic Event(합성 이벤트)를 발생시킨다. 원레 vanilla js의 이벤트를 얻고싶다면 nativeEvent를 살펴보면 확인 할 수 있다. */
         /*console.log("somebody wrote : " + event.target.value);*/
-        setMinutes(event.target.value);
+        setAmount(event.target.value);
     };
+    const onReset = () => setAmount("");
+    const onFlip = (event) => {
+        onReset();
+        setInverted((current) => !current);
+    }; /*현재 state값을 넣어주고, 결과는 그 반대를 도출하라고 명령*/
     return (
         <div>
-            <h1 className="superConverter">Super Converter</h1> {/*미리 선점된 js의 언어인 class 및 for은 jsx언어로 바꾸어줘야 한다. htmlFor , className! */}
-            <label htmlFor="minutes">Minutes</label>
-            <input
-                value={minutes}
-                id="minutes"
-                type="Number"
-                placeholder="Minutes"
-                onChange={onChange}
-            />
-            <h4>You want to convert : {minutes}</h4>
-            <label htmlFor="hours">Hours</label>
-            <input id="hours" type="Number" placeholder="Hours"/>
+            <h4>You want to convert : {amount}</h4>
+            <div>
+                <label htmlFor="minutes">Minutes</label>
+                <input
+                    value={inverted ? Math.round(amount * 60) : amount}
+                    id="minutes"
+                    type="Number"
+                    placeholder="Minutes"
+                    onChange={onChange}
+                    disabled={inverted}
+                />
+            </div>
+            <div>
+                <label htmlFor="hours">Hours</label>
+                <input
+                    value={inverted ? amount : Math.round(amount / 60)}
+                    id="hours"
+                    type="Number"
+                    placeholder="Hours"
+                    onChange={onChange}
+                    disabled={!inverted}
+                />
+            </div>
+            <button onClick={onReset}>Reset</button>
+            <button onClick={onFlip}>{inverted ? "Turn back" : "Invert"}</button>
         </div>
     );
 }
+
+function KmToMiles(){
+    return <h3>KM 2 M(km/miles 변환기)</h3>;
+}
+
+function ConvertApp() {
+    const [index, setIndex] = React.useState("xx");
+    const onSelect = (event) =>{ setIndex(event.target.value) };
+    return (
+        <div>
+            <hr/>
+            <h1 className="superConverter">Super Converter</h1>{/*미리 선점된 js의 언어인 class 및 for은 jsx언어로 바꾸어줘야 한다. htmlFor , className! */}
+            <select onChange={onSelect}>
+                <option value="xx">Select your units</option>
+                <option value="0">Minutes & Hours</option>
+                <option value="1">Km & Miles</option>
+            </select>
+            {/*{index === "xx" ? "Please select your units...!!" : null}*/}
+            {index === "0" ? <MinutesToHours /> : null} {/*중괄호를 열면 js를 사용할 수 있다.*/} {/* 분할 정복(divide and conquer), 작은 컴포넌트들을 분할(divide)하고, 정복.*/}
+            {index === "1" ? <KmToMiles /> : null}
+        </div>
+    );
+}
+const converter = document.querySelector("#converter");
 ReactDOM.render(<ConvertApp />, converter);
 
 /*React js 에서 input은 uncontrolled라고 알려져 있는 만큼 input의 value를 통제할 수가 없다.
 그래서 state를 사용해줘야 한다.
+
+위의 내용을 정리를 해보자.
+
+첫번째로 우리는 state를 만들었다.
+알다시피 setState의 결과는 array인데, 첫번재 요소는 데이터이고, 두번재 요소는 데이터를 수정하기 위한 함수이다.
+그 다음으로, 우린 input의 value를 state로 연결해줬다.
+state로 input value를 연결해주는 건 매우 유용한데 그 이유는 input value를 어디서든 수정해줄 수 있기 때문이다.
+그다음에 데이터를 업데이트해주는 용도로 onChange 함수와 같은 이벤트 리스너를 하나 만들어서,
+input에서 listening하는 데이터(event.target.value)를 업데이트 해주는 역할을 해준다.
+그리고 state 두번째 요소인 함수를 사용하여 ui에 보여주면 업데이트 완료.
+
 
 * */
