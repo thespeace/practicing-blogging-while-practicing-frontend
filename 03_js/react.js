@@ -227,7 +227,7 @@ function ConvertApp() {
     const onSelect = (event) =>{ setIndex(event.target.value) };
     return (
         <div>
-            <hr/>
+            <hr/> {/*jsx의 내부*/}
             <h1 className="superConverter">Super Converter</h1>{/*미리 선점된 js의 언어인 class 및 for은 jsx언어로 바꾸어줘야 한다. htmlFor , className! */}
             <select onChange={onSelect}>
                 <option value="xx">Select your units</option>
@@ -236,7 +236,7 @@ function ConvertApp() {
             </select>
             {/*{index === "xx" ? "Please select your units...!!" : null}*/}
             {index === "0" ? <MinutesToHours /> : null} {/*중괄호를 열면 js를 사용할 수 있다.*/} {/* 분할 정복(divide and conquer), 작은 컴포넌트들을 분할(divide)하고, 정복.*/}
-            {index === "1" ? <KmToMiles /> : null}
+            {index === "1" ? <KmToMiles /> : null} {/* 함수형컴포넌트, 이렇게 로직을 고립시켜서 분리된 컴포넌트로 만들 수 있다. 부모 컴포넌트는 ConvertApp 이고, 자식 컴포넌트들은 KmToMiles, MinutesToHours!*/}
         </div>
     );
 }
@@ -255,6 +255,29 @@ state로 input value를 연결해주는 건 매우 유용한데 그 이유는 in
 그다음에 데이터를 업데이트해주는 용도로 onChange 함수와 같은 이벤트 리스너를 하나 만들어서,
 input에서 listening하는 데이터(event.target.value)를 업데이트 해주는 역할을 해준다.
 그리고 state 두번째 요소인 함수를 사용하여 ui에 보여주면 업데이트 완료.
+*/
+
+function SaveBtn(){
+    return <button style={{
+        backgroundColor : "tomato",
+        color:"white",
+        padding:"10px 20px",
+        border : 0,
+        borderRadius: 10,
+    }}>Save Changes</button> /*style properties 변경*/
+}
+function ConfirmBtn() {
+    return <button>Confirm</button>
+}
+function PropsApp() {
+    return <div>
+        <SaveBtn />
+        <ConfirmBtn />
+    </div>;
+}
+const props = document.querySelector("#props");
+ReactDOM.render(<PropsApp />,props);
 
 
-* */
+
+/*Props : 일종의 방식으로, 부모 컴포넌트로부터 자식 컴포넌트에 데이터를 보낼 수 있게 해주는 방법을 일컫는다.*/
