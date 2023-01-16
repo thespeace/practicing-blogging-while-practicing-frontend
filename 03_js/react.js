@@ -257,22 +257,22 @@ input에서 listening하는 데이터(event.target.value)를 업데이트 해주
 그리고 state 두번째 요소인 함수를 사용하여 ui에 보여주면 업데이트 완료.
 */
 
-function SaveBtn(){
+function Btn({text, big}){ /*props는 첫번째이자 유일한 인자(property 또는 prop), 하지만 props.어쩌구 이렇게 사용하진 않고, {어쩌구} 이렇게 사용해서 바로 오브젝트를 적어 사용가능하다.*/
     return <button style={{
         backgroundColor : "tomato",
         color:"white",
         padding:"10px 20px",
         border : 0,
         borderRadius: 10,
-    }}>Save Changes</button> /*style properties 변경*/
-}
-function ConfirmBtn() {
-    return <button>Confirm</button>
+        fontSize : big ? 20 : 15,
+    }}>
+        {text}
+    </button> /*style properties 변경*/
 }
 function PropsApp() {
     return <div>
-        <SaveBtn />
-        <ConfirmBtn />
+        <Btn text="Save Changes" big={true}/>
+        <Btn text="Continue" big={false}/>
     </div>;
 }
 const props = document.querySelector("#props");
