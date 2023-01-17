@@ -257,22 +257,27 @@ input에서 listening하는 데이터(event.target.value)를 업데이트 해주
 그리고 state 두번째 요소인 함수를 사용하여 ui에 보여주면 업데이트 완료.
 */
 
-function Btn({text, big}){ /*props는 첫번째이자 유일한 인자(property 또는 prop), 하지만 props.어쩌구 이렇게 사용하진 않고, {어쩌구} 이렇게 사용해서 바로 오브젝트를 적어 사용가능하다.*/
-    return <button style={{
+function Btn({text, changeValue}){ /*props는 첫번째이자 유일한 인자(property 또는 prop), 하지만 props.어쩌구 이렇게 사용하진 않고, {어쩌구} 이렇게 사용해서 바로 오브젝트를 적어 사용가능하다.*/
+    console.log(text, "was rendered!"); /*해당 콘솔을 통해 react의 작동 원리인 render에 대해 살펴보자.*/
+    return <button
+        onClick = {changeValue}
+        style={{
         backgroundColor : "tomato",
         color:"white",
         padding:"10px 20px",
         border : 0,
         borderRadius: 10,
-        fontSize : big ? 20 : 15,
     }}>
         {text}
     </button> /*style properties 변경*/
 }
+const MemorizedBtn = React.memo(Btn); /* memorize btn 생성! 굳이 암기하지 않아도 된다. 단지 이런 feature가 리액트에 존재한다는 것을 보여주는 것.*/
 function PropsApp() {
+    const [value, setValue] = React.useState("Save Changes");
+    const changeValue = () => setValue("Revert Changes"); /*다음의 함수를 사용해 부모 컴포넌트인 App의 state(상태) 변경하여 re render!*/
     return <div>
-        <Btn text="Save Changes" big={true}/>
-        <Btn text="Continue" big={false}/>
+        <MemorizedBtn text={value} changeValue={changeValue} /> {/*여기서 onClick은 이벤트리스너가 아니라 btn으로 들어가는 prop(정확히는 prop name function)이다!*/}
+        <MemorizedBtn text="Continue" />
     </div>;
 }
 const props = document.querySelector("#props");
@@ -280,4 +285,18 @@ ReactDOM.render(<PropsApp />,props);
 
 
 
-/*Props : 일종의 방식으로, 부모 컴포넌트로부터 자식 컴포넌트에 데이터를 보낼 수 있게 해주는 방법을 일컫는다.*/
+/*Props : 일종의 방식으로, 부모 컴포넌트로부터 자식 컴포넌트에 데이터를 보낼 수 있게 해주는 방법을 일컫는다.
+
+
+ *memo
+    ReactJS는 어플리케이션을 최적화시키는 많은 것들을 가지고 있다.
+    그중 하나가 react MEMO! 이다.
+    부모 컴포넌트 밑에 자식 컴포넌트중에 원하는 것만 바꿀수 있게 re render을 겪는 와중 변화(render)를 원치 않는 컴포넌트(prop)에게  re rending을 하지 말라고 memorize를 시킬 수 있다..
+    방법은 const MemorizedBtn = React.memo(Btn); 와 같이 re render을 제어하는 feature을 사용하여
+    만약 부모 컴포넌트의 어떠한 state의 변경이 있으면 모든 자식들은 다시 그려질(re-render)거다.
+    그리고 이게 추후에 네 어플리케이션이 느려지는 원인이 될 수도 있다.
+    상상해보자 만약 하나의 컴포넌트를 변경했는데 그 컴포넌트가 천 개의 컴포넌트를 그리고 있다면? 이야기가 달라진다.
+    결국 우리는 react에게 "만약 이 prop가 변경되지 않는다면 다시 그릴 필요가 없다"는 것을 말해줬을 뿐이다.
+    반대로 변화하고자 하는 prop에게는 "우리 prop 다시 그려주세요~" 라고 한 것이다.
+
+*/
