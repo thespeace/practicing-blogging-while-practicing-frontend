@@ -271,12 +271,16 @@ function Btn({text, changeValue}){ /*props는 첫번째이자 유일한 인자(p
         {text}
     </button> /*style properties 변경*/
 }
+/*Btn.propTypes = {
+    text : PropTypes.string.isRequired, 타입을 필수로 지정하기.
+    fontSize : PropTypes.Number,
+};*/
 const MemorizedBtn = React.memo(Btn); /* memorize btn 생성! 굳이 암기하지 않아도 된다. 단지 이런 feature가 리액트에 존재한다는 것을 보여주는 것.*/
 function PropsApp() {
     const [value, setValue] = React.useState("Save Changes");
     const changeValue = () => setValue("Revert Changes"); /*다음의 함수를 사용해 부모 컴포넌트인 App의 state(상태) 변경하여 re render!*/
     return <div>
-        <MemorizedBtn text={value} changeValue={changeValue} /> {/*여기서 onClick은 이벤트리스너가 아니라 btn으로 들어가는 prop(정확히는 prop name function)이다!*/}
+        <Btn text={value} changeValue={changeValue} fontSize={40} /> {/*여기서 onClick은 이벤트리스너가 아니라 btn으로 들어가는 prop(정확히는 prop name function)이다!*/}
         <MemorizedBtn text="Continue" />
     </div>;
 }
@@ -299,4 +303,11 @@ ReactDOM.render(<PropsApp />,props);
     결국 우리는 react에게 "만약 이 prop가 변경되지 않는다면 다시 그릴 필요가 없다"는 것을 말해줬을 뿐이다.
     반대로 변화하고자 하는 prop에게는 "우리 prop 다시 그려주세요~" 라고 한 것이다.
 
+
+  *Props Types
+   자바스크립트의 유연한 특성 때문에 작성이 편한 반면, 파일이 많아지면 생산성이 떨어진다는 점 때문에 타입스크립트를 많이 사용하는데,
+   반드시 자바스크립트를 이용해 앱을 개발해야 하는 상황에서는 이러한 문제점을 피하기 위해 PropTypes를 활용하는 것을 권장한다.
+
+    PropTypes는 부모로부터 전달받은 prop의 데이터 type을 검사한다.
+    자식 컴포넌트에서 명시해 놓은 데이터 타입과 부모로부터 넘겨받은 데이터 타입이 일치하지 않으면 콘솔에 에러 경고문이 띄워진다. 간단한 예시를 통해 propTypes의 장점을 알 수 있다.
 */
