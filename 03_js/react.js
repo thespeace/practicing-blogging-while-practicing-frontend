@@ -324,7 +324,8 @@ ReactDOM.render(<PropsApp />,props);
     예를 들어, 이것으로 어플리케이션을 만들면 개발 서버에 접근한다던가, 자동으로 새로고침을 시켜준다던가, 즉각적으로 어플리케이션 안에 css를 포함시켜 준다던지 하는 기능들이 있다.
 
     시작해보자.
-    1.nodeJs를 설치한다. (www.nodejs.org > OS에 맞는 버전 설치 후 > 터미널을 켜서  node -v 로 잘 설치 되어있는지 확인! 그리고 잘 작동하는 지 확인 ( )
-
+    1.nodeJs를 설치한다. (www.nodejs.org > OS에 맞는 버전 설치 후 > 터미널을 켜서  node -v 로 잘 설치 되어있는지 확인! 그리고 잘 작동하는 지 확인 ( npx 커맨드로 확인 후 exit)
+    2.프로젝트 생성! ( npx create-react-app 어플리케이션이름(=폴더명) > 이것저것이 load가 되며 install할 것이다. )
+    3.프로젝트 설정 확인 ( IDE로 해당 프로젝트를 켠 후, package.json을 확인 해보자. create-react-app 팀에 의해 만들어 진것들을 확인 할 수 있는데,
 
 */
