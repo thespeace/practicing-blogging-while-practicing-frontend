@@ -323,9 +323,25 @@ ReactDOM.render(<PropsApp />,props);
     그 이유로는, creat-react-app은 엄청나게 많은 스크립트들과 많은 사전설정들을 준비해줘서 가능하다.
     예를 들어, 이것으로 어플리케이션을 만들면 개발 서버에 접근한다던가, 자동으로 새로고침을 시켜준다던가, 즉각적으로 어플리케이션 안에 css를 포함시켜 준다던지 하는 기능들이 있다.
 
-    시작해보자.
+    시작해보자.(npm create > start!)
     1.nodeJs를 설치한다. (www.nodejs.org > OS에 맞는 버전 설치 후 > 터미널을 켜서  node -v 로 잘 설치 되어있는지 확인! 그리고 잘 작동하는 지 확인 ( npx 커맨드로 확인 후 exit)
     2.프로젝트 생성! ( npx create-react-app 어플리케이션이름(=폴더명) > 이것저것이 load가 되며 install할 것이다. )
     3.프로젝트 설정 확인 ( IDE로 해당 프로젝트를 켠 후, package.json을 확인 해보자. create-react-app 팀에 의해 만들어 진것들을 확인 할 수 있는데,
+      그 중 script를 보면 start,build,test,eject를 확인할 수 있는데 이것들을 command 창에서 사용가능한 스크립트들이다.
+    4.node.js command prompt를 켜서 프로젝트 경로로 접근 후, npm run > npm start를 입력하면 "개발용 서버"가 만들어 진다.
+      그러면 자동으로 브라우저가 열리며 어플리케이션의 초기 버전이 보여진다.
+    5.이제 src라는 폴더명을 확인 할 수가 있을텐데, 모든 파일들을 여기다가 넣으면 된다. 모든게 다 src에 있어야 한다.
+      많은 것들이 들어있는데, 그중 index.js와 index.html 내용을 살펴보면 우리가 학습했던 내용들을 확인 할 수 있다.
 
+      + create-react-app을 이용하면 얻을 수 있는 장점 한가지로는 Auto-reload(자동 재실행)이라는 유용한 기능을 사용할 수 있다!!
+    6.이미 설정된 코드들을 초기화 해주자. index.js에서 inport들과 ReactDom.render만 두고 import css 포함, 다 지워준다.
+    7. app.js에서도 css를 지우고 logo도 지우고 초기화 작업을 해주자. 그리고 App 함수 return 값도 자신이 원하는 태그와 텍스트를 넣고 초기화 해주자.
+    8. 그리고 src폴더 안의 파일들도 index.js와 app.js만 남기고 다 지워주자.
+    9. 이로써 우리는 깔끔한 create-react-app의 설치판을 얻었다!
+       우리는 어플리케이션을 랜더링해줄 뿐인 index와 내용을 채우는 app.js를 얻었다!
+
+
+
+    자 이제 create-react-app과 친해져 보자!!
+    자세한건 Git Repositories에서 learn-react-js-starter 확인!
 */
