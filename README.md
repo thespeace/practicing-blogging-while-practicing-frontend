@@ -1,1 +1,1 @@
-# thespeace.github.io
+# Learning publishing and front-end through blogging practice
